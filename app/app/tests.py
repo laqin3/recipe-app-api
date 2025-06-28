@@ -15,13 +15,13 @@ class ViewTest(SimpleTestCase):
 
 # 29. Write a test using TDD
     """
-        In TDD: 
+    TDD work flow as below:
         1. Write test for behaviour expected to see in code
         2. Test fails
         3. Write code so test passes
 
-        Use commande =>  
-        docker compose run -rm app sh -c "python manage.py test" 
+    Run the below commande:
+        docker compose run -rm app sh -c 'python manage.py test'
     """
 
     def test_subtraction(self):
@@ -36,3 +36,4 @@ class ViewTest(SimpleTestCase):
     #     client = APIClient()
     #     res  = client.get('/greeting/')
     #     self.assertEqual(res, "Hello!")
+        
