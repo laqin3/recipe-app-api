@@ -36,4 +36,3 @@ class ViewTest(SimpleTestCase):
     #     client = APIClient()
     #     res  = client.get('/greeting/')
     #     self.assertEqual(res, "Hello!")
-        
