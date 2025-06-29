@@ -19,7 +19,7 @@ class CommandTests(SimpleTestCase):
     def test_wait_for_db_ready(self, patched_check):
         """Test waiting for database if ready."""
 
-        # return_value and side effect_are
+        # return_value and side_effect are from patch mock module
         patched_check.return_value = True
 
         call_command('wait_for_db')
