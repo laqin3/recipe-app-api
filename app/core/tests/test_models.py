@@ -2,7 +2,8 @@
 Tests for models
 """
 from django.test import TestCase  # Base class for tests
-from django.contrib.auth import get_user_model  # Helper function used to get default user model
+from django.contrib.auth import get_user_model
+# above Helper function used to get default user model
 
 
 class TestModels(TestCase):
@@ -22,7 +23,8 @@ class TestModels(TestCase):
         self.assertTrue(user.check_password(password))
 
         # docker compose run --rm app sh -c "python manage.py test"
-        # TypeError: create_user() missing 1 required positional argument: 'username'
+        # TypeError:
+        # create_user() missing 1 required positional argument: 'username'
 
     def test_new_user_email_normalized(self):
         """Test email is normalized for new user."""
@@ -39,7 +41,7 @@ class TestModels(TestCase):
     def test_new_user_without_email_raises_error(self):
         """Test that creating new user without email raises a ValueError."""
         with self.assertRaises(ValueError):
-            user = get_user_model().objects.create_user('', 'test123')
+            get_user_model().objects.create_user('', 'test123')
 
     def test_create_superuser(self):
         """Test creating a superuser"""
