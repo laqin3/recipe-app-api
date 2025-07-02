@@ -4,7 +4,7 @@ Tests for the Django admin modifications.
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from django.test import Client
+from django.test import Client  # noqa
 
 
 class AdminSiteTests(TestCase):
@@ -13,14 +13,14 @@ class AdminSiteTests(TestCase):
     # setUp() method executes before each testcase
     def setUp(self):
         self.admin_user = get_user_model().objects.create_superuser(
-            email = 'admin@example.com',
-            password = 'testpass123'
+            email='admin@example.com',
+            password='testpass123'
         )
         self.client.force_login(self.admin_user)  # let system login the user
         self.user = get_user_model().objects.create_user(
-            email = 'user@example.com',
-            password = 'testpass123',
-            name = 'Test User'
+            email='user@example.com',
+            password='testpass123',
+            name='Test User'
         )
 
     def test_user_list(self):
@@ -28,7 +28,8 @@ class AdminSiteTests(TestCase):
         url = reverse('admin:core_user_changelist')
         res = self.client.get(url)
 
-        self.assertContains(res, self.user.name)  # assertContains, not assertEquals
+        # assertContains, not assertEquals
+        self.assertContains(res, self.user.name)
         self.assertContains(res, self.user.email)
 
     def test_edit_user_page(self):
