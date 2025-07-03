@@ -1,14 +1,16 @@
 """
-Sample Test
+Sample tests
 """
 from django.test import SimpleTestCase
 from app import calc
 
 
 # 28. Write a test
-class ViewTest(SimpleTestCase):
-    def test_add(self):
-        """ Test adding numbers together."""
+class CalcTests(SimpleTestCase):
+    """Test the calc module."""
+
+    def test_add_numbers(self):
+        """Test adding numbers together."""
         res = calc.add(5, 6)
 
         self.assertEqual(res, 11)
@@ -24,8 +26,8 @@ class ViewTest(SimpleTestCase):
         docker compose run -rm app sh -c 'python manage.py test'
     """
 
-    def test_subtraction(self):
-        """ Testing subtracting numbers """
+    def test_subtract_numbers(self):
+        """Testing subtracting numbers."""
         res = calc.subtract(10, 15)
 
         self.assertEqual(res, 5)
