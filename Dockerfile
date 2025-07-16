@@ -17,7 +17,7 @@ RUN python -m venv /py && \
         build-base postgresql-dev musl-dev zlib zlib-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
-        then /py/bin/pip install -r /tmp/requirements.dev.txt; \
+        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
@@ -25,9 +25,9 @@ RUN python -m venv /py && \
         --disabled-password \
         --no-create-home \
         django-user && \
-    mkdir -P /vol/web/media && \
-    mkdir -P /vol/web/static && \
-    chown -R django-user:django-uer /vol && \
+    mkdir -p /vol/web/media && \
+    mkdir -p /vol/web/static && \
+    chown -R django-user:django-user /vol && \
     chmod -R 755 /vol
 
 ENV PATH="/py/bin:$PATH"
