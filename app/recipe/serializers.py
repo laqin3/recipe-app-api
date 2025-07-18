@@ -15,8 +15,8 @@ class IngredientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ingredient
-        fields = ('id', 'name',)
-        read_only_field = ['id']
+        fields = ['id', 'name',]
+        read_only_fields = ['id']
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -24,8 +24,8 @@ class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tag
-        fields = ('id', 'name')
-        read_only_field = ('id',)
+        fields = ['id', 'name',]
+        read_only_fields = ['id',]
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -37,8 +37,9 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = [
             'id', 'title', 'time_minutes', 'price', 'link', 'tags',
-            'ingredients']
-        read_only_fields = ('id',)
+            'ingredients'
+            ]
+        read_only_fields = ['id',]
 
     def _get_or_create_tags(self, tags, recipe):
         """Handle getting or creating tags as needed."""

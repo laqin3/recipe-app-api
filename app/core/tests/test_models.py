@@ -1,5 +1,5 @@
 """
-Tests for models
+Tests for models.
 """
 from unittest.mock import patch
 from decimal import Decimal
@@ -37,7 +37,7 @@ class ModelTests(TestCase):
         # create_user() missing 1 required positional argument: 'username'
 
     def test_new_user_email_normalized(self):
-        """Test email is normalized for new user."""
+        """Test email is normalized for new users."""
         sample_emails = [
             ['test1@EXAMPLE.com', 'test1@example.com'],
             ['Test2@Example.com', 'Test2@example.com'],
@@ -67,8 +67,8 @@ class ModelTests(TestCase):
     def test_create_recipe(self):
         """Test creating a recipe is successful."""
         user = get_user_model().objects.create_user(
-            "test@example.com",
-            "testpass123"
+            'test@example.com',
+            'testpass123',
         )
         recipe = models.Recipe.objects.create(
             user=user,
@@ -83,12 +83,12 @@ class ModelTests(TestCase):
     def test_create_tag(self):
         """Test creating a tag is successful."""
         user = create_user()
-        tag = models.Tag.objects.create(user=user, name='tag1')
+        tag = models.Tag.objects.create(user=user, name='Tag1')
 
         self.assertEqual(str(tag), tag.name)
 
     def test_create_ingredient(self):
-        """Test creating a ingredient is successful."""
+        """Test creating an ingredient is successful."""
         user = create_user()
         ingredient = models.Ingredient.objects.create(
             user=user,
